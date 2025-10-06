@@ -1,0 +1,39 @@
+# Django
+*.pyc
+*__pycache__/
+db.sqlite3
+migrations/
+.env
+.env.local
+*.log
+
+# Virtual Environment
+venv/
+env/
+myenv/
+virtualenv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-*
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Static files
+staticfiles/
+media/
+
+# Database
+*.db
+*.sqlite3
+
+# Security
+secrets.json
+config.json
+key.json
