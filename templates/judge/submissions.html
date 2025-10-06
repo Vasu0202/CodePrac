@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="min-h-screen bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100 dark:from-gray-900 dark:via-gray-900 dark:to-gray-900 py-10 px-6">
+  <div class="max-w-4xl mx-auto bg-white dark:bg-gray-800 shadow-lg rounded-xl p-6">
+    <div class="flex justify-between items-center mb-6">
+      <h1 class="text-2xl font-semibold text-indigo-700 dark:text-indigo-300">📜 Your Submissions</h1>
+      <a href="{% url 'problem_list' %}" class="text-indigo-600 dark:text-indigo-400 hover:underline">← Back to Problems</a>
+    </div>
+
+    {% if submissions %}
+      <ul class="divide-y divide-gray-200 dark:divide-gray-700">
+        {% for submission in submissions %}
+        <li class="py-6">
+          <div class="flex flex-col gap-3">
+            <div>
+              <p class="text-lg font-medium text-gray-900 dark:text-white">{{ submission.problem.title }}</p>
+              <p class="text-sm text-gray-600 dark:text-gray-400">
+                Verdict:
+                <span class="{% if submission.verdict == 'Accepted' %}text-green-600 dark:text-green-400{% else %}text-red-500 dark:text-red-400{% endif %}">
+                  {{ submission.verdict }}
+                </span>
+              </p>
+              <p class="text-xs text-gray-400 dark:text-gray-500">{{ submission.created_at|date:"d M Y H:i" }}</p>
+            </div>
+
+            <div class="rounded-xl overflow-hidden bg-gray-100 dark:bg-gray-900">
+              <pre class="overflow-x-auto text-sm"><code class="language-{{ submission.language }}">{{ submission.code|escape }}</code></pre>
+            </div>
+          </div>
+        </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p class="text-gray-600 dark:text-gray-300">No submissions yet.</p>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,7 @@
+Django>=5.2,<6.0
+djangorestframework
+django-markdownify
+markdown
+docker
+gunicorn
+psycopg2-binary

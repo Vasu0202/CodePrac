@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="max-w-3xl mx-auto bg-white dark:bg-gray-800 p-8 rounded-xl shadow-md mt-10">
+
+  <!-- Back to Dashboard Button -->
+  <div class="flex justify-end mb-4">
+    <a href="{% url 'dashboard' %}" class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-4 py-2 rounded-lg shadow">
+      🔙 Back to Dashboard
+    </a>
+  </div>
+
+  <h2 class="text-3xl font-bold text-emerald-500 dark:text-emerald-200 mb-4">👤 Profile</h2>
+
+
+  
+  <div class="space-y-2 text-gray-800 dark:text-gray-200">
+    <p><strong>Username:</strong> {{ user.username }}</p>
+    <p><strong>Email:</strong> {{ user.email }}</p>
+    <hr class="my-4 border-gray-300 dark:border-gray-600">
+
+    <p><strong>Total Submissions:</strong> {{ total_submissions }}</p>
+    <p><strong>Accepted:</strong> {{ accepted }}</p>
+    <p><strong>Failed:</strong> {{ failed }}</p>
+    <p><strong>Problems Solved:</strong> {{ problems_solved }}</p>
+  </div>
+</div>
+{% endblock %}
